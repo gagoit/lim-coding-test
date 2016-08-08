@@ -6,16 +6,46 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-2.3.1
+	+ 2.3.1
 
 * Rails version
-5.0
+	+ 5.0
 
 * Api documentation
-http://petstore.swagger.io/?baseUrl=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Fv1%2Fswagger_doc.json#/
+	+ http://petstore.swagger.io/?baseUrl=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Fv1%2Fswagger_doc.json#/
 	+ Api Version will be set in headers['Accept'] = "application/vnd.lim-coding-test-v#{version}"
 	+ User Authorization token will be set in headers['Authorization']
 	+ currently API has version 1
+
+- Response format:		
+	+ Normal
+	```
+	{
+	   data: {},
+	   meta: {
+	      code: 200,
+	      message: "success"
+	   }
+	}
+	```
+	+ If have pagination:
+	```
+	{
+	   data: {},
+	   meta: {
+	      code: 200,
+	      message: "success",
+	      current_page: 1,
+	      next_page: 2,
+	      prev_page: -1,
+	      total_pages: 2,
+	      total_count: 21
+	   }
+	}
+	```
+	
+	+ `prev_pave = -1` if current_page = 1
+	+ `next_pave = -1` if current_page = last_page
 
 * Note:
   + Grabbed HTML tags will be defined in app/models/html_element.rb
